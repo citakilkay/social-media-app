@@ -1,18 +1,9 @@
+const typeDefs = require('./graphql/typedef');
+const resolvers = require('./graphql/resolvers');
 const { ApolloServer } = require('apollo-server');
-const graphql  = require('graphql-tag');
 const mongoose = require('mongoose');
 require('dotenv/config');
 
-const typeDefs = graphql`
-    type Query{
-        sayHi: String!
-    }`
-
-const resolvers = {
-    Query : {
-        sayHi: () => 'Hi, this is mongo'
-    }
-}
 
 const server = new ApolloServer({
     typeDefs: typeDefs,
